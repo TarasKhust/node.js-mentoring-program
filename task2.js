@@ -5,9 +5,9 @@ var stream = fs.createReadStream("./csv/nodejs-hw1-ex1.csv");
 
 csv()
     .fromStream(stream)
-    .subscribe(function(jsonObj){ //single json object will be emitted for each csv line
+    .subscribe(function(jsonObj){
         return new Promise(function(resolve,reject){
-            fs.writeFileSync('./csv/example.text', JSON.stringify(resolve))
+            fs.writeFileSync('./csv/example.text', JSON.stringify(jsonObj))
         }).catch((error) => {
             console.log(error)
         })
