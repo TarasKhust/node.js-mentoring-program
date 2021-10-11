@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "task1": "npx nodemon app.js",
-    "task2": "npx nodemon task2.js"
+    "task1": "nodemon --exec babel-node  _homework/task1/app.js",
+    "task2": "nodemon --exec babel-node _homework/task1.1/task1.2.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +15,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csvtojson": "^2.0.10"
+    "csvtojson": "2.0.10",
+    "nodemon": "2.0.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8"
   }
 }

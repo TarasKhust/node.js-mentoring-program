@@ -1,4 +1,4 @@
-const readline = require('readline');
+import readline from "readline"
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -6,8 +6,9 @@ const rl = readline.createInterface({
     terminal: false
 });
 
-rl.on('line', function (line) {
+rl.on('line',  (line) => {
     const reversOutput  = line.split("").reverse().join("");
-    rl.output.write(reversOutput)
-    // console.log(reversOutput);
-});
+    console.log(reversOutput);
+}).on("close", () => {
+    process.exit(0)
+})
