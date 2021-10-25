@@ -40,7 +40,7 @@ export const removeUserById = (req, res) => {
     const users = req.body
     const user = data.findIndex((obj => obj.id === users.id));
 
-    if (user === 0) {
+    if (user >= 0) {
 
         data[user].isDeleted = true
 
