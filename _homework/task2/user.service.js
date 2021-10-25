@@ -1,10 +1,20 @@
 import { data } from "./server";
+import Joi from 'joi'
+import joiValidator from "express-joi-validation"
+export const validator = joiValidator.createValidator()
+
+export const schema = Joi.object({
+    id: Joi.string().required(),
+    login: Joi.string().required(),
+    password: Joi.string().alphanum().required(),
+    age: Joi.number().required().min(4).max(130),
+    isDeleted: Joi.boolean().required()
+})
 
 
 export const createUser = (req, res) => {
     const users = req.body
     const user = data.findIndex((obj => obj.id === users.id));
-    console.log(user)
 
     if (user >= 0) {
 

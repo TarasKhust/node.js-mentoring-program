@@ -1,5 +1,5 @@
 import express from 'express'
-import {createUser, getUserById, removeUserById} from "./user.service";
+import {createUser, getUserById, removeUserById, schema, validator} from "./user.service";
 const app = express();
 const router = express.Router()
 
@@ -85,7 +85,7 @@ app.use(express.json())
 
 
 //routers
-router.post('/user', createUser)
+router.post('/user', validator.body(schema),  createUser)
 
 router.get('/user/:id', getUserById)
 
