@@ -19,7 +19,9 @@
     "csvtojson": "2.0.10",
     "express": "^4.17.1",
     "install": "^0.13.0",
-    "nodemon": "2.0.13"
+    "nodemon": "2.0.13",
+    "express-joi-validation": "5.0.0",
+    "joi": "17.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
