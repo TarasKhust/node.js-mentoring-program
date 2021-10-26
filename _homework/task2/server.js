@@ -1,5 +1,5 @@
 import express from 'express'
-import {createUser, getUserById, removeUserById, schema, validator} from "./user.service";
+import {createUser, getUserById, removeUserById, schema, updateUser, validator} from "./user.service";
 const app = express();
 const router = express.Router()
 
@@ -75,21 +75,29 @@ export const data = [{
 
 }]
 
-app.listen(3001, function() {
-    console.log('listening on 3001')
-})
+
+
+
 app.use(express.json())
-
-
-
-
+app.use("/", router)
 
 //routers
 router.post('/user', validator.body(schema),  createUser)
 
+router.put('/user', validator.body(schema),  updateUser)
+
 router.get('/user/:id', getUserById)
 
-router.put('/user/:id', removeUserById)
+router.delete('/user/:id', validator.body(schema), removeUserById)
+
+app.use((err, res) => {
+    if(err != null) {
+        res.status(404).json({message: `Request is wrong `})
+    }
+})
 
 
-app.use("/", router)
+app.listen(3001, function() {
+    console.log('listening on 3001')
+})
+

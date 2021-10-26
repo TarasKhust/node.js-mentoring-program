@@ -6,7 +6,8 @@
   "scripts": {
     "task1": "nodemon --exec babel-node  _homework/task1/app.js",
     "task2": "nodemon --exec babel-node _homework/task1.1/task1.2.js",
-    "task3": "nodemon --exec babel-node _homework/task2/server.js"
+    "task3": "nodemon --exec babel-node _homework/task2/server.js",
+    "lint": "eslint --fix --ext .js ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@babel/core": "^7.15.8",
     "@babel/node": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "@babel/eslint-parser": "7.15.8",
     "eslint": "8.1.0"
   }
 }

@@ -18,16 +18,31 @@ export const createUser = (req, res) => {
 
     if (user >= 0) {
 
-        data[user].age = users.age
-        data[user].login = users.login
-        data[user].password = users.password
-        data[user].isDeleted = user.isDeleted
-
-        res.status(200).json({message: `User with id ${users.id} successfully update`})
+        res.status(200).json({message: `User with id ${users.id} already created`})
 
     } else {
         data.push(users)
         res.status(200).json({message: `User successfully created`})
+    }
+
+
+}
+
+export const updateUser = (req, res) => {
+    const users = req.body
+    const user = data.findIndex((obj => obj.id === users.id));
+
+    if (user >= 0) {
+
+        data[user].age = users.age
+        data[user].login = users.login
+        data[user].password = users.password
+        data[user].isDeleted = users.isDeleted
+
+        res.status(200).json({message: `User with id ${users.id} successfully update`})
+
+    } else {
+        res.status(404).json({message: `User with id ${users.id} not found `})
     }
 
 
