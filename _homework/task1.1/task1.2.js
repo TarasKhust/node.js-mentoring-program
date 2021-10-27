@@ -1,6 +1,6 @@
-import { pipeline } from "stream"
-import fs from "fs"
-import csv from "csvtojson";
+import { pipeline } from 'stream';
+import fs from 'fs';
+import csv from 'csvtojson';
 
 pipeline(
     fs.createReadStream('_homework/task1/csv/nodejs-hw1-ex1.csv'),
