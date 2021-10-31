@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "task1": "nodemon --exec babel-node  _homework/task1/app.js",
-    "task2": "nodemon --exec babel-node _homework/task1.1/task1.2.js",
-    "task3": "nodemon --exec babel-node _homework/task2/server.js",
+    "task1": "nodemon -x ts-node  _homework/task1/app.ts",
+    "task2": "nodemon -x ts-node _homework/task1.1/task1.2.ts",
+    "task3": "nodemon -x ts-node _homework/task2/server.ts",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "@babel/eslint-parser": "7.15.8",
     "@babel/node": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "@types/express": "^4.17.13",
     "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",

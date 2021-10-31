@@ -3,6 +3,14 @@ import { createUser, getUserById, removeUserById, schema, updateUser, validator 
 const app = express();
 const router = express.Router();
 
+export type Users = {
+    id: string,
+    login: string,
+    password: string,
+    age: number,
+    isDeleted: boolean
+}
+
 export const data = [{
     id: '1',
     login: 'login1',
@@ -73,7 +81,7 @@ export const data = [{
     age: 10,
     isDeleted: true
 
-}];
+}] as Users[];
 
 
 app.use(express.json());

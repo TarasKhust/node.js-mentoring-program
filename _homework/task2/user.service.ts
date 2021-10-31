@@ -1,6 +1,7 @@
 import { data } from './server';
 import Joi from 'joi';
 import joiValidator from 'express-joi-validation';
+import { Request, Response } from 'express/ts4.0';
 export const validator = joiValidator.createValidator();
 
 export const schema = Joi.object({
@@ -12,7 +13,7 @@ export const schema = Joi.object({
 });
 
 
-export const createUser = (req, res) => {
+export const createUser = (req: Request, res: Response)  => {
     const users = req.body;
     const user = data.findIndex(obj => obj.id === users.id);
 
@@ -24,7 +25,7 @@ export const createUser = (req, res) => {
     }
 };
 
-export const updateUser = (req, res) => {
+export const updateUser = (req: Request, res: Response) => {
     const users = req.body;
     const user = data.findIndex(obj => obj.id === users.id);
 
@@ -40,7 +41,7 @@ export const updateUser = (req, res) => {
     }
 };
 
-export const getUserById = (req, res) => {
+export const getUserById = (req: Request, res: Response) => {
     const user = data.find(({ id }) => id === req.params.id);
 
     if (user === undefined) {
@@ -51,7 +52,7 @@ export const getUserById = (req, res) => {
 };
 
 
-export const removeUserById = (req, res) => {
+export const removeUserById = (req: Request, res: Response) => {
     const users = req.body;
     const user = data.findIndex(obj => obj.id === users.id);
 
