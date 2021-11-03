@@ -1,7 +1,8 @@
 import express from 'express';
-import { createUser, getUserById, removeUserById, schema, updateUser, validator } from './user.service';
+import { createUser, getUserById, removeUserById, schema, updateUser, validator } from './services/user.service';
 const app = express();
 const router = express.Router();
+
 
 export type Users = {
     id: string,

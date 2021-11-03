@@ -1,4 +1,4 @@
-import { data } from './server';
+import { data } from '../app';
 import Joi from 'joi';
 import joiValidator from 'express-joi-validation';
 import { Request, Response } from 'express/ts4.0';

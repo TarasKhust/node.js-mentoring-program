@@ -5,7 +5,6 @@
     "lib": ["es6"],
     "allowJs": true,
     "outDir": "build",
-    "rootDir": "_homework",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,

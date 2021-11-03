@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "task1": "nodemon -x ts-node  _homework/task1/app.ts",
-    "task2": "nodemon -x ts-node _homework/task1.1/task1.2.ts",
-    "task3": "nodemon -x ts-node _homework/task2/server.ts",
+    "serve": "nodemon -x ts-node app.ts",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
