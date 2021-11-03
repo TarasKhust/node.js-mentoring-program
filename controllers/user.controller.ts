@@ -1,17 +1,13 @@
 import { UserService } from '../services/user.service';
 import { User } from '../models';
 
-import { Router, Response, Request } from 'express';
-import { schema, validator } from '../validation/user.validation';
+import { Response, Request } from 'express';
 
 export class UserController {
-    public router: Router;
     private usersService: UserService;
 
     constructor() {
         this.usersService = new UserService(); // Create a new instance of PostController
-        this.router = Router();
-        this.routes();
     }
 
     public getUser = async (req: Request, res: Response) => {
@@ -59,11 +55,4 @@ export class UserController {
             res.status(404).json({ message: `User with id ${user.id} not found` });
         }
     };
-
-    public routes() {
-        this.router.get('/', this.getUser);
-        this.router.post('/', validator.body(schema), this.create);
-        this.router.put('/:id', validator.body(schema), this.update);
-        this.router.delete('/:id', validator.body(schema), this.delete);
-    }
 }

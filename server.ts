@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
 import { createConnection } from 'typeorm';
-import { UserController } from './controllers/user.controller';
+import { UserRouter } from './api/user.router';
 import dbConfig from './config/typeorm.config';
 
 
 class Server {
-    private userController: UserController | undefined;
+    private userRouter: UserRouter | undefined;
     private app: express.Application;
 
     constructor() {
@@ -25,13 +25,14 @@ class Server {
         await createConnection(dbConfig);
 
 
-        this.userController = new UserController();
+        this.userRouter = new UserRouter();
 
         this.app.get('/', (req: Request, res: Response) => {
             res.send('Hello world!');
         });
 
-        this.app.use('/api/user/', this.userController.router);
+        this.app.use('/api/users/', this.userRouter.router);
+
         this.app.use((err, res) => {
             if (err !== null) {
                 res.status(404).json({ message: 'Request is wrong ' });
