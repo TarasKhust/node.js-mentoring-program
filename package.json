@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon -x ts-node app.ts",
+    "serve": "nodemon -x ts-node server.ts",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
@@ -15,11 +15,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "class-validator": "0.13.1",
     "csvtojson": "2.0.10",
     "express": "^4.17.1",
-    "install": "^0.13.0",
     "express-joi-validation": "5.0.0",
-    "joi": "17.4.2"
+    "install": "^0.13.0",
+    "joi": "17.4.2",
+    "pg": "^8.7.1",
+    "typeorm": "0.2.38"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
