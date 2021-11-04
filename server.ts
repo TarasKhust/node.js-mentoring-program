@@ -1,15 +1,16 @@
 import express, { Request, Response } from 'express';
+import dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
 import { UserRouter } from './api/user.router';
 import dbConfig from './config/typeorm.config';
-
+dotenv.config();
 
 class Server {
     private userRouter: UserRouter | undefined;
     private app: express.Application;
 
     constructor() {
-        this.app = express(); // init the application
+        this.app = express();
         this.configuration();
         this.routes();
     }

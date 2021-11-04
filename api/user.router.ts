@@ -14,10 +14,10 @@ export class UserRouter {
     }
 
     public routes() {
-        this.router.get('/', this.userController.getUser);
+        this.router.get('/', this.userController.getUsers);
         this.router.post('/', validator.body(schema), this.userController.create);
+        this.router.get('/:id', this.userController.getUserById);
         this.router.put('/:id', validator.body(schema), this.userController.update);
         this.router.delete('/:id', validator.body(schema), this.userController.delete);
     }
 }
-

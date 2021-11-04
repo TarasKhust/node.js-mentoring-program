@@ -1,6 +1,11 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity('users')
+@Entity('users', {
+    orderBy: {
+        name: 'ASC',
+        id: 'DESC'
+    }
+})
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
       id!: string;
@@ -14,7 +19,7 @@ export class User extends BaseEntity {
   @Column({ type: 'text', default: '' })
       age!: string;
 
-  @Column({ type: 'text', default: '' })
+  @Column({ type: 'text', default: false })
       isDeleted!: boolean;
 
   @CreateDateColumn()
