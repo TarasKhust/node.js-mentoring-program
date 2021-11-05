@@ -2,7 +2,7 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, U
 
 @Entity('users', {
     orderBy: {
-        name: 'ASC',
+        login: 'ASC',
         id: 'DESC'
     }
 })
