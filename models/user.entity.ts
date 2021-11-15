@@ -20,11 +20,11 @@ export class User extends BaseEntity {
       age!: string;
 
   @Column({ type: 'text', default: false })
-      isDeleted!: boolean;
+      isdeleted!: boolean;
 
   @CreateDateColumn()
-      createdAt!: Date;
+      createdat!: Date;
 
   @UpdateDateColumn()
-      updatedAt!: Date;
+      updatedat!: Date;
 }

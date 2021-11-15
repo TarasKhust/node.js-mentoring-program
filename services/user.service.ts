@@ -10,27 +10,14 @@ export class UserService {
 
 
     async createUser(user: User): Promise<User | boolean> {
-        const { id } = user;
-
-        const getUserById = await this.userRepository.findOne({
-            where: {
-                id
-            }
-        });
-
-        if (getUserById) {
-            return false;
-        }
-
-
         const createUser = await this.userRepository.create(user);
 
-        return this.userRepository.save(createUser);
+        return await this.userRepository.save(createUser);
     }
 
 
     async getUserById(userId: string) {
-        return this.userRepository.findOne({
+        return await this.userRepository.findOne({
             where: {
                 id: userId
             }
