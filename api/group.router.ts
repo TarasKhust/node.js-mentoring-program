@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { GroupController } from '../group/group.controller';
-import { schema, validationGroup, validationUser, validator } from '../validation/user.validation';
+import { schema, validationGroup, validator } from '../validation/user.validation';
 
 
 export class GroupRouter {
@@ -15,7 +15,7 @@ export class GroupRouter {
 
     public routes() {
         this.router.get('/', this.groupController.getGroups);
-        this.router.post('/', validator.body(schema('id', validationUser)), this.groupController.createGroup);
+        this.router.post('/', validator.body(schema('id', validationGroup)), this.groupController.createGroup);
         this.router.get('/:id', this.groupController.getGroupById);
         this.router.put('/:id', validator.body(schema('', validationGroup)), this.groupController.updateGroup);
         this.router.delete('/:id', this.groupController.deleteGroup);

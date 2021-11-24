@@ -13,8 +13,8 @@ export const validationUser = {
 export const validationGroup = {
     id: Joi.string().uuid(),
     name: Joi.string().required(),
-    permission: Joi.array(),
-    users: Joi.array()
+    permissions: Joi.array(),
+    user: Joi.array()
 };
 
 
@@ -25,8 +25,8 @@ export const schema = (exclude = '',
     login?: Joi.StringSchema;
     isdeleted?: Joi.BooleanSchema;
     age?: Joi.NumberSchema,
-    users?: Joi.ArraySchema,
-    permission?: Joi.ArraySchema;
+    user?: Joi.ArraySchema,
+    permissions?: Joi.ArraySchema;
     name?: Joi.StringSchema; }) => {
     if (exclude) {
         // @ts-ignore
