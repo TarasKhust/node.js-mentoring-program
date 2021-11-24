@@ -1,5 +1,5 @@
 import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
-import { User } from './user.entity';
+import { UserEntity } from './user.entity';
 import { UserRepository } from './user.repository';
 
 export class UserService {
@@ -9,7 +9,7 @@ export class UserService {
     }
 
 
-    async createUser(user: User): Promise<User | boolean> {
+    async createUser(user: UserEntity): Promise<UserEntity | boolean> {
         const createUser = await this.userRepository.create(user);
 
         return await this.userRepository.save(createUser);
@@ -24,7 +24,7 @@ export class UserService {
         });
     }
 
-    async updateUserById(user: User, id: string): Promise<UpdateResult> {
+    async updateUserById(user: UserEntity, id: string): Promise<UpdateResult> {
         return await this.userRepository.update(id, user);
     }
 
@@ -32,7 +32,7 @@ export class UserService {
         return await this.userRepository.delete(id);
     }
 
-    async getUsers(): Promise<User[]> {
+    async getUsers(): Promise<UserEntity[]> {
         return await this.userRepository.find();
     }
 }

@@ -1,4 +1,5 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany } from 'typeorm';
+import { GroupEntity } from '../group/group.entity';
 
 @Entity('users', {
     orderBy: {
@@ -6,7 +7,7 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, U
         id: 'DESC'
     }
 })
-export class User extends BaseEntity {
+export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
       id!: string;
 
@@ -18,6 +19,11 @@ export class User extends BaseEntity {
 
   @Column({ type: 'text', default: '' })
       age!: string;
+
+  @ManyToMany(() => GroupEntity, (group: GroupEntity) => group.user, {
+      nullable: true
+  })
+      group?: GroupEntity[];
 
   @Column({ type: 'text', default: false })
       isdeleted!: boolean;
