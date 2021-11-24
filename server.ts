@@ -2,11 +2,13 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
 import { UserRouter } from './api/user.router';
+import { GroupRouter } from './api/group.router';
 import dbConfig from './config/typeorm.config';
 dotenv.config();
 
 class Server {
     private userRouter: UserRouter | undefined;
+    private groupRouter: GroupRouter | undefined;
     private app: express.Application;
 
     constructor() {
@@ -27,12 +29,14 @@ class Server {
 
 
         this.userRouter = new UserRouter();
+        this.groupRouter = new GroupRouter();
 
         this.app.get('/', (req: Request, res: Response) => {
             res.send('Hello world!');
         });
 
         this.app.use('/api/users/', this.userRouter.router);
+        this.app.use('/api/group/', this.groupRouter.router);
 
         this.app.use((err, res) => {
             if (err !== null) {

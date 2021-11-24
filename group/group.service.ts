@@ -2,7 +2,7 @@ import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
 import { GroupEntity } from './group.entity';
 import { GroupRepository } from './group.repository';
 
-export class UserService {
+export class GroupService {
     private groupRepository: GroupRepository;
     constructor() {
         this.groupRepository = getConnection('default').getCustomRepository(GroupRepository);
