@@ -1,6 +1,6 @@
 import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
-import { User } from '../models';
-import { UserRepository } from '../repository/user.repository';
+import { User } from './user.entity';
+import { UserRepository } from './user.repository';
 
 export class UserService {
     private userRepository: UserRepository;
