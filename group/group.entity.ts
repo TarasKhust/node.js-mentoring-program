@@ -30,7 +30,7 @@ export class GroupEntity extends BaseEntity {
     @ManyToMany(() => UserEntity, (user: UserEntity) => user.group, {
         nullable: true, cascade: true
     })
-    @JoinTable({ name: 'order_product_order' })
+    @JoinTable()
         user: UserEntity[] | undefined;
 
     @CreateDateColumn()
