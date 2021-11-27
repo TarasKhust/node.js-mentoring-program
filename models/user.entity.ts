@@ -1,5 +1,5 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany } from 'typeorm';
-import { GroupEntity } from '../group/group.entity';
+import { GroupEntity } from './group.entity';
 
 @Entity('users', {
     orderBy: {
@@ -20,10 +20,10 @@ export class UserEntity extends BaseEntity {
   @Column({ type: 'text', default: '' })
       age!: string;
 
-  @ManyToMany(() => GroupEntity, (group: GroupEntity) => group.user, {
+  @ManyToMany(() => GroupEntity, (groups: GroupEntity) => groups.users, {
       nullable: true
   })
-      group?: GroupEntity[];
+      groups?: GroupEntity[];
 
   @Column({ type: 'text', default: false })
       isdeleted!: boolean;

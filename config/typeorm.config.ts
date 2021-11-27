@@ -1,6 +1,6 @@
 import { ConnectionOptions } from 'typeorm';
-import { UserEntity } from '../user/user.entity';
-import { GroupEntity } from '../group/group.entity';
+import { UserEntity } from '../models/user.entity';
+import { GroupEntity } from '../models/group.entity';
 
 const config: ConnectionOptions = {
     type: 'postgres',

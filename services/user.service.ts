@@ -1,6 +1,6 @@
 import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
-import { UserEntity } from './user.entity';
-import { UserRepository } from './user.repository';
+import { UserEntity } from '../models/user.entity';
+import { UserRepository } from '../repository/user.repository';
 
 export class UserService {
     private userRepository: UserRepository;
@@ -20,7 +20,8 @@ export class UserService {
         return await this.userRepository.findOne({
             where: {
                 id: userId
-            }
+            },
+            relations: ['groups']
         });
     }
 
@@ -33,6 +34,6 @@ export class UserService {
     }
 
     async getUsers(): Promise<UserEntity[]> {
-        return await this.userRepository.find();
+        return await this.userRepository.find({ relations: ['groups'] });
     }
 }

@@ -1,6 +1,6 @@
 import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
-import { GroupEntity } from './group.entity';
-import { GroupRepository } from './group.repository';
+import { GroupEntity } from '../models/group.entity';
+import { GroupRepository } from '../repository/group.repository';
 
 export class GroupService {
     private groupRepository: GroupRepository;
@@ -21,12 +21,14 @@ export class GroupService {
             where: {
                 id: groupId
             },
-            relations: ['user']
+            relations: ['users']
         });
     }
 
     async updateGroupById(group: GroupEntity, id: string): Promise<UpdateResult> {
-        return await this.groupRepository.update(id, group);
+        return await this.groupRepository.update(id, {
+            ...group
+        });
     }
 
     async deleteGroupById(id: string): Promise<DeleteResult> {
@@ -35,7 +37,7 @@ export class GroupService {
 
     async getGroups(): Promise<GroupEntity[]> {
         return await this.groupRepository.find({
-            relations: ['user']
+            relations: ['users']
         });
     }
 }

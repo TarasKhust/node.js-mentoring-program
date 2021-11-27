@@ -8,7 +8,7 @@ import {
     ManyToMany,
     JoinTable
 } from 'typeorm';
-import { UserEntity } from '../user/user.entity';
+import { UserEntity } from './user.entity';
 
 
 @Entity('groups', {
@@ -27,11 +27,11 @@ export class GroupEntity extends BaseEntity {
     @Column('text', { array: true, nullable: true })
         permissions!: String[];
 
-    @ManyToMany(() => UserEntity, (user: UserEntity) => user.group, {
+    @ManyToMany(() => UserEntity, (users: UserEntity) => users.groups, {
         nullable: true, cascade: true
     })
     @JoinTable()
-        user: UserEntity[] | undefined;
+        users: UserEntity[] | undefined;
 
     @CreateDateColumn()
         createdat!: Date;

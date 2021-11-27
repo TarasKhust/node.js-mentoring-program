@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { GroupController } from '../group/group.controller';
+import { GroupController } from '../controllers/group.controller';
 import { schema, validationGroup, validator } from '../validation/user.validation';
 
 

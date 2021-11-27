@@ -1,4 +1,4 @@
-import { GroupService } from './group.service';
+import { GroupService } from '../services/group.service';
 
 import { Response, Request } from 'express';
 

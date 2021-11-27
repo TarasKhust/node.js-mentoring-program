@@ -36,7 +36,7 @@ class Server {
         });
 
         this.app.use('/api/users/', this.userRouter.router);
-        this.app.use('/api/group/', this.groupRouter.router);
+        this.app.use('/api/groups/', this.groupRouter.router);
 
         this.app.use((err, res) => {
             if (err !== null) {
