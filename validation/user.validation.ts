@@ -12,10 +12,11 @@ export const validationUser = {
     groups: Joi.array()
 };
 
+
 export const validationGroup = {
     id: Joi.string().uuid(),
     name: Joi.string().required(),
-    permissions: Joi.array(),
+    permissions: Joi.array().items(Joi.string().valid('READ', 'WRITE', 'DELETE', 'SHARE', 'UPLOAD_FILES')).required(),
     users: Joi.array()
 };
 
