@@ -31,7 +31,7 @@ export class GroupEntity extends BaseEntity {
         nullable: true, cascade: true
     })
     @JoinTable()
-        users: UserEntity[] | undefined;
+        users?: UserEntity[];
 
     @CreateDateColumn()
         createdat!: Date;

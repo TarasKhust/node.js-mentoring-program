@@ -1,11 +1,14 @@
-import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
+import { DeleteResult, getConnection } from 'typeorm';
 import { GroupEntity } from '../models/group.entity';
 import { GroupRepository } from '../repository/group.repository';
+import { UserRepository } from '../repository/user.repository';
 
 export class GroupService {
     private groupRepository: GroupRepository;
+    private userRepository: UserRepository;
     constructor() {
         this.groupRepository = getConnection('default').getCustomRepository(GroupRepository);
+        this.userRepository = getConnection('default').getCustomRepository(UserRepository);
     }
 
 
@@ -25,10 +28,17 @@ export class GroupService {
         });
     }
 
-    async updateGroupById(group: GroupEntity, id: string): Promise<UpdateResult> {
-        return await this.groupRepository.update(id, {
-            ...group
+
+    async updateGroupById(group: GroupEntity, id: string): Promise<GroupEntity> {
+        const groupById = await this.groupRepository.findOneOrFail({
+            where: {
+                id
+            },
+            relations: ['users']
         });
+
+
+        return await this.groupRepository.save({ ...groupById, ...group });
     }
 
     async deleteGroupById(id: string): Promise<DeleteResult> {
