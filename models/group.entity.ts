@@ -28,10 +28,10 @@ export class GroupEntity extends BaseEntity {
         permissions!: String[];
 
     @ManyToMany(() => UserEntity, (users: UserEntity) => users.groups, {
-        nullable: true, cascade: true
+        nullable: true, cascade: true,  onDelete: 'CASCADE'
     })
     @JoinTable()
-        users?: UserEntity[];
+        users?: string[];
 
     @CreateDateColumn()
         createdat!: Date;
