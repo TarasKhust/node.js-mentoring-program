@@ -28,7 +28,7 @@ export class GroupEntity extends BaseEntity {
         permissions!: String[];
 
     @ManyToMany(() => UserEntity, (users: UserEntity) => users.groups, {
-        nullable: true, cascade: true,  onDelete: 'CASCADE'
+        nullable: true, cascade: true,  onDelete: 'CASCADE',  onUpdate: 'CASCADE'
     })
     @JoinTable()
         users?: string[];

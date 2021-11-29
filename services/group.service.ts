@@ -15,6 +15,8 @@ export class GroupService {
     async createGroup(group: GroupEntity): Promise<GroupEntity | boolean> {
         const createGroup = await this.groupRepository.create(group);
 
+        console.log(createGroup);
+
         return await this.groupRepository.save(createGroup);
     }
 
@@ -37,8 +39,23 @@ export class GroupService {
             relations: ['users']
         });
 
+        console.log(group.users);
 
-        return await this.groupRepository.save({ ...groupById, ...group });
+        // @ts-ignore
+        const userById = await this.userRepository.findByIds(group.users);
+
+        // const ola = group.users?.filter(() => )
+
+        console.log(userById);
+
+
+        // @ts-ignore
+        groupById.users.push(userById);
+
+        // console.log(groupById);
+
+
+        return await this.groupRepository.save({ ...group, ...groupById });
     }
 
     async deleteGroupById(id: string): Promise<DeleteResult> {

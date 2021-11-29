@@ -21,7 +21,7 @@ export class UserEntity extends BaseEntity {
       age!: string;
 
   @ManyToMany(() => GroupEntity, (groups: GroupEntity) => groups.users, {
-      nullable: true,  onDelete: 'CASCADE'
+      nullable: true,  onDelete: 'CASCADE', onUpdate: 'CASCADE'
   })
       groups?: GroupEntity[];
 
