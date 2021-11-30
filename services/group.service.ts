@@ -1,4 +1,4 @@
-import { DeleteResult, getConnection } from 'typeorm';
+import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
 import { GroupEntity } from '../models/group.entity';
 import { GroupRepository } from '../repository/group.repository';
 import { UserRepository } from '../repository/user.repository';
@@ -31,29 +31,36 @@ export class GroupService {
     }
 
 
-    async updateGroupById(group: GroupEntity, id: string): Promise<GroupEntity> {
+    async updateGroupById(group: GroupEntity, groupId: string): Promise<GroupEntity | UpdateResult> {
+        if (!group?.users) {
+            return await this.groupRepository.update({
+                id: groupId
+            }, {
+                ...group
+            });
+        }
+
+
         const groupById = await this.groupRepository.findOneOrFail({
             where: {
-                id
+                id: groupId
             },
             relations: ['users']
         });
 
-        console.log(group.users);
 
         // @ts-ignore
-        const userById = await this.userRepository.findByIds(group.users);
-
-        // const ola = group.users?.filter(() => )
-
-        console.log(userById);
-
+        const usersByIds = await this.userRepository.findByIds(group.users);
 
         // @ts-ignore
-        groupById.users.push(userById);
+        const checkIfUserExist = groupById.users?.filter(x => usersByIds.some(y => x.id === y.id))[0];
 
-        // console.log(groupById);
-
+        if (checkIfUserExist) {
+            // @ts-ignore
+            return;
+        }
+        // @ts-ignore
+        groupById.users.push(usersByIds);
 
         return await this.groupRepository.save({ ...group, ...groupById });
     }
