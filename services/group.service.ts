@@ -1,4 +1,4 @@
-import { DeleteResult, getConnection, UpdateResult } from 'typeorm';
+import { DeleteResult, getConnection, Repository } from 'typeorm';
 import { GroupEntity } from '../models/group.entity';
 import { GroupRepository } from '../repository/group.repository';
 import { UserRepository } from '../repository/user.repository';
@@ -6,16 +6,16 @@ import { UserRepository } from '../repository/user.repository';
 export class GroupService {
     private groupRepository: GroupRepository;
     private userRepository: UserRepository;
+    private readonly groupAndUsersRepository: Repository<any>;
     constructor() {
         this.groupRepository = getConnection('default').getCustomRepository(GroupRepository);
         this.userRepository = getConnection('default').getCustomRepository(UserRepository);
+        this.groupAndUsersRepository = getConnection('default').getRepository('groups_users_users');
     }
 
 
     async createGroup(group: GroupEntity): Promise<GroupEntity | boolean> {
         const createGroup = await this.groupRepository.create(group);
-
-        console.log(createGroup);
 
         return await this.groupRepository.save(createGroup);
     }
@@ -31,7 +31,41 @@ export class GroupService {
     }
 
 
-    async updateGroupById(group: GroupEntity, groupId: string): Promise<GroupEntity | UpdateResult> {
+    async addUsersToGroup(groupId: string, userIds: String[]): Promise<any> {
+        // @ts-ignore
+        const groupById = await this.groupRepository.findOneOrFail({
+            where: {
+                id: groupId
+            },
+            relations: ['users']
+        });
+
+        // @ts-ignore
+        const usersByIds = await this.userRepository.findByIds(userIds.users);
+
+        console.log(usersByIds);
+
+        // @ts-ignore
+        const checkIfUserExist = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id))[0];
+
+        console.log(checkIfUserExist);
+
+        // @ts-ignore
+        if (checkIfUserExist) {
+            // @ts-ignore
+            // const createGroupUsers = await this.groupAndUsersRepository.create({ groupsId: groupId, usersId: checkIfUserExist.id });
+            return this.groupAndUsersRepository.save([{ groupsId: groupId, usersId: checkIfUserExist.id }]);
+        }
+        // checkIfUserExist.forEach((value) => this.groupAndUsersRepository.save({ groupsId: groupId, usersId: value }));
+
+
+        // checkIfUserExist.forEach((value) => this.groupAndUsersRepository.update({ groupsId: groupId, usersId: value }, {
+        //     groupsId: groupId, usersId: value
+        // }));
+    }
+
+
+    async updateGroupById(group: GroupEntity, groupId: string): Promise<any> {
         if (!group?.users) {
             return await this.groupRepository.update({
                 id: groupId
@@ -53,7 +87,7 @@ export class GroupService {
         const usersByIds = await this.userRepository.findByIds(group.users);
 
         // @ts-ignore
-        const checkIfUserExist = groupById.users?.filter(x => usersByIds.some(y => x.id === y.id))[0];
+        const checkIfUserExist = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id))[0];
 
         if (checkIfUserExist) {
             // @ts-ignore

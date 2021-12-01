@@ -69,6 +69,22 @@ export class GroupController {
         }
     };
 
+    public addGroupsToUsers = async (req: Request, res: Response) => {
+        try {
+            const users = req.body;
+            const id =  req.params.id;
+            const updateGroupUsers = await this.groupService.addUsersToGroup(id, users);
+
+            if (updateGroupUsers) {
+                res.status(200).json(updateGroupUsers);
+            } else {
+                res.status(404).json({ message: `User with id ${id} not found ` });
+            }
+        } catch (error) {
+            res.json({ message : error });
+        }
+    };
+
     public deleteGroup = async (req: Request, res: Response) => {
         try {
             const id =  req.params.id;
