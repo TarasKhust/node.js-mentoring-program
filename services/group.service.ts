@@ -46,11 +46,11 @@ export class GroupService {
 
 
         // @ts-ignore
-        const checkIfUserExist = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id));
+        const checkIfUserNotExists = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id));
 
 
         // @ts-ignore
-        if (checkIfUserExist) {
+        if (checkIfUserNotExists) {
             // @ts-ignore
             // const createGroupUsers = await this.groupAndUsersRepository.create({ groupsId: groupId, usersId: checkIfUserExist.id });
             const seUsers = (usersUpdate) => await getConnection()
@@ -60,7 +60,7 @@ export class GroupService {
                 .where('id = :id', { id: groupId })
                 .execute();
 
-            return checkIfUserExist.forEach((value) => seUsers({ groupsId: groupId, usersId: value }));
+            return checkIfUserNotExists.forEach((value) => seUsers({ groupsId: groupId, usersId: value }));
         }
     }
 
@@ -87,9 +87,9 @@ export class GroupService {
         const usersByIds = await this.userRepository.findByIds(group.users);
 
         // @ts-ignore
-        const checkIfUserExist = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id))[0];
+        const checkIfUserNotExists = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id))[0];
 
-        if (checkIfUserExist) {
+        if (checkIfUserNotExists) {
             // @ts-ignore
             return;
         }
