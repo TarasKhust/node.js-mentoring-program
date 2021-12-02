@@ -40,28 +40,28 @@ export class GroupService {
             relations: ['users']
         });
 
+
         // @ts-ignore
         const usersByIds = await this.userRepository.findByIds(userIds.users);
 
-        console.log(usersByIds);
 
         // @ts-ignore
-        const checkIfUserExist = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id))[0];
+        const checkIfUserExist = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id));
 
-        console.log(checkIfUserExist);
 
         // @ts-ignore
         if (checkIfUserExist) {
             // @ts-ignore
             // const createGroupUsers = await this.groupAndUsersRepository.create({ groupsId: groupId, usersId: checkIfUserExist.id });
-            return this.groupAndUsersRepository.save([{ groupsId: groupId, usersId: checkIfUserExist.id }]);
+            const seUsers = (usersUpdate) => await getConnection()
+                .createQueryBuilder()
+                .update('groups_users_user').useTransaction(true)
+                .set(usersUpdate)
+                .where('id = :id', { id: groupId })
+                .execute();
+
+            return checkIfUserExist.forEach((value) => seUsers({ groupsId: groupId, usersId: value }));
         }
-        // checkIfUserExist.forEach((value) => this.groupAndUsersRepository.save({ groupsId: groupId, usersId: value }));
-
-
-        // checkIfUserExist.forEach((value) => this.groupAndUsersRepository.update({ groupsId: groupId, usersId: value }, {
-        //     groupsId: groupId, usersId: value
-        // }));
     }
 
 
