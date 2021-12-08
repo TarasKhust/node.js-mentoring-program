@@ -19,8 +19,8 @@ export class GroupController {
             } else {
                 res.status(200).json(group);
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -33,8 +33,8 @@ export class GroupController {
             } else {
                 res.status(200).json(groups);
             }
-        }  catch (error) {
-            res.json({ message : error });
+        }  catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -48,8 +48,8 @@ export class GroupController {
             } else {
                 res.status(200).json(newGroup);
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -64,8 +64,8 @@ export class GroupController {
             } else {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -80,8 +80,8 @@ export class GroupController {
             } else {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -95,8 +95,8 @@ export class GroupController {
             } else {
                 res.status(404).json({ message: `User with id ${id} not found` });
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 }

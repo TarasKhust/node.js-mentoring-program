@@ -19,8 +19,8 @@ export class UserController {
             } else {
                 res.status(200).json(user);
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -33,8 +33,8 @@ export class UserController {
             } else {
                 res.status(200).json(users);
             }
-        }  catch (error) {
-            res.json({ message : error });
+        }  catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -48,8 +48,8 @@ export class UserController {
             } else {
                 res.status(200).json(newUser);
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -64,8 +64,8 @@ export class UserController {
             } else {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 
@@ -79,8 +79,8 @@ export class UserController {
             } else {
                 res.status(404).json({ message: `User with id ${id} not found` });
             }
-        } catch (error) {
-            res.json({ message : error });
+        } catch ({ message }) {
+            res.json({ message });
         }
     };
 }
