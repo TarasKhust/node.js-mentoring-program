@@ -1,4 +1,4 @@
-import { DeleteResult, getConnection, Repository } from 'typeorm';
+import { DeleteResult, getConnection } from 'typeorm';
 import { GroupEntity } from '../models/group.entity';
 import { GroupRepository } from '../repository/group.repository';
 import { UserRepository } from '../repository/user.repository';
@@ -6,11 +6,9 @@ import { UserRepository } from '../repository/user.repository';
 export class GroupService {
     private groupRepository: GroupRepository;
     private userRepository: UserRepository;
-    private readonly groupAndUsersRepository: Repository<any>;
     constructor() {
         this.groupRepository = getConnection('default').getCustomRepository(GroupRepository);
         this.userRepository = getConnection('default').getCustomRepository(UserRepository);
-        this.groupAndUsersRepository = getConnection('default').getRepository('groups_users_users');
     }
 
 

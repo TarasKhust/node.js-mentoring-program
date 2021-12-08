@@ -5,8 +5,7 @@ import {
     Column,
     CreateDateColumn,
     UpdateDateColumn,
-    ManyToMany,
-    JoinTable
+    OneToMany
 } from 'typeorm';
 import { UserEntity } from './user.entity';
 
@@ -27,11 +26,11 @@ export class GroupEntity extends BaseEntity {
     @Column('text', { array: true, nullable: true })
         permissions!: String[];
 
-    @ManyToMany(() => UserEntity, (users: UserEntity) => users.groups, {
-        nullable: true, cascade: true,  onDelete: 'CASCADE',  onUpdate: 'CASCADE'
+
+    @OneToMany(() => UserEntity, (users: UserEntity) => users.groups, {
+        nullable: true
     })
-    @JoinTable()
-        users?: string[];
+        users?: UserEntity[];
 
     @CreateDateColumn()
         createdat!: Date;

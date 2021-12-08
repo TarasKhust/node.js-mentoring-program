@@ -9,7 +9,7 @@ export const validationUser = {
     password: Joi.string().alphanum().required(),
     age: Joi.number().required().min(4).max(130),
     isdeleted: Joi.boolean().required(),
-    groups: Joi.array()
+    groups: Joi.string()
 };
 
 
@@ -31,7 +31,7 @@ export const schema = (exclude = '',
     users?: Joi.ArraySchema,
     permissions?: Joi.ArraySchema;
     name?: Joi.StringSchema;
-    groups?: Joi.ArraySchema;}) => {
+    groups?: Joi.StringSchema;}) => {
     if (exclude) {
         // @ts-ignore
         delete validation[exclude];

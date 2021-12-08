@@ -1,4 +1,4 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany } from 'typeorm';
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
 import { GroupEntity } from './group.entity';
 
 @Entity('users', {
@@ -20,10 +20,12 @@ export class UserEntity extends BaseEntity {
   @Column({ type: 'text', default: '' })
       age!: string;
 
-  @ManyToMany(() => GroupEntity, (groups: GroupEntity) => groups.users, {
-      nullable: true,  onDelete: 'CASCADE', onUpdate: 'CASCADE'
+
+  @ManyToOne(() => GroupEntity, groups => groups.users, {
+      onDelete: 'CASCADE', onUpdate: 'CASCADE', nullable: true
   })
-      groups?: GroupEntity[];
+      groups?: GroupEntity;
+
 
   @Column({ type: 'text', default: false })
       isdeleted!: boolean;
