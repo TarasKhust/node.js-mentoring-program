@@ -60,7 +60,7 @@ export class UserController {
             const updateUser = await this.usersService.updateUserById(user, id);
 
             if (updateUser) {
-                res.status(200).json(user);
+                res.status(200).json(updateUser);
             } else {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }

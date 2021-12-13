@@ -60,7 +60,7 @@ export class GroupController {
             const updateGroup = await this.groupService.updateGroupById(group, id);
 
             if (updateGroup) {
-                res.status(200).json(group);
+                res.status(200).json(updateGroup);
             } else {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }

@@ -2,6 +2,7 @@ import { DeleteResult, getConnection } from 'typeorm';
 import { GroupEntity } from '../models/group.entity';
 import { GroupRepository } from '../repository/group.repository';
 import { UserRepository } from '../repository/user.repository';
+import { log } from 'util';
 
 type Users = {
     users: String[]
@@ -65,14 +66,7 @@ export class GroupService {
 
 
     async updateGroupById(group: GroupEntity, groupId: string): Promise<any> {
-        if (!group?.users) {
-            return await this.groupRepository.update({
-                id: groupId
-            }, {
-                ...group
-            });
-        }
-
+        const isUsersExist = group?.users?.length;
 
         const groupById = await this.groupRepository.findOneOrFail({
             where: {
@@ -81,7 +75,7 @@ export class GroupService {
             relations: ['users']
         });
 
-
+        // @ts-ignore
         const usersByIds = await this.userRepository.findByIds(group.users);
 
 
@@ -94,8 +88,17 @@ export class GroupService {
             groupById.users.push(checkIfUserNotExists);
         }
 
+        const updateGroupEntity = {
+            GroupEntity: {
+                id: groupById.id,
+                name: group.name,
+                permissions: group.permissions,
+                users: isUsersExist ? groupById.users : []
+            }
+        };
 
-        return await this.groupRepository.save({ ...group, ...groupById });
+
+        return await this.groupRepository.save(updateGroupEntity.GroupEntity);
     }
 
     async deleteGroupById(id: string): Promise<DeleteResult> {
