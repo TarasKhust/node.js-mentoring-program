@@ -25,8 +25,12 @@ export class UserService {
         });
     }
 
-    async updateUserById(user: UserEntity, id: string): Promise<UpdateResult> {
-        return await this.userRepository.update(id, user);
+    async updateUserById(user: UserEntity, id: string): Promise<UserEntity | undefined> {
+        const { affected } = await this.userRepository.update(id, user);
+
+        if ((affected: any) => 1) {
+            return this.getUserById(id)
+        }
     }
 
     async deleteUserById(id: string): Promise<DeleteResult> {
