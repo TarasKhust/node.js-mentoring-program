@@ -18,7 +18,7 @@ export class GroupRouter {
         this.router.post('/', validator.body(schema('id', validationGroup)), this.groupController.createGroup);
         this.router.get('/:id', this.groupController.getGroupById);
         this.router.put('/:id', validator.body(schema('', validationGroup)), this.groupController.updateGroup);
-        this.router.post('/:id',  this.groupController.addGroupsToUsers);
+        this.router.post('/:id',  this.groupController.addUsersToGroup);
         this.router.delete('/:id', this.groupController.deleteGroup);
     }
 }

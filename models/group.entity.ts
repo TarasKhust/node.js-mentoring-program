@@ -28,7 +28,7 @@ export class GroupEntity extends BaseEntity {
 
 
     @OneToMany(() => UserEntity, (users: UserEntity) => users.groups, {
-        nullable: true, onDelete: 'CASCADE', onUpdate:'CASCADE', cascade: true
+        nullable: true, onUpdate:'CASCADE', cascade: true
     })
         users?: UserEntity[];
 

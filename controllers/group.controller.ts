@@ -69,7 +69,7 @@ export class GroupController {
         }
     };
 
-    public addGroupsToUsers = async (req: Request, res: Response) => {
+    public addUsersToGroup = async (req: Request, res: Response) => {
         try {
             const users = req.body;
             const id =  req.params.id;

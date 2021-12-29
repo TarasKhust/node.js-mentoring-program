@@ -22,7 +22,7 @@ export class UserEntity extends BaseEntity {
 
 
   @ManyToOne(() => GroupEntity, groups => groups.users, {
-      onDelete: 'CASCADE', onUpdate: 'CASCADE', nullable: true
+       onUpdate: 'CASCADE', nullable: true
   })
       groups?: GroupEntity;
 
