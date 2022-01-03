@@ -4,8 +4,14 @@ import { createConnection } from 'typeorm';
 import { UserRouter } from './api/user.router';
 import { GroupRouter } from './api/group.router';
 import dbConfig from './config/typeorm.config';
-import morganMiddleware from './config/morganMiddleware'
+import morganMiddleware from './middleware/morganMiddleware'
+import morgan from 'morgan';
 dotenv.config();
+
+morgan.token('param', function(req, res, param) {
+    // @ts-ignore
+    return req?.params[param];
+});
 
 class Server {
     private userRouter: UserRouter | undefined;
@@ -42,7 +48,7 @@ class Server {
 
         this.app.use((err, res) => {
             if (err !== null) {
-                res.status(404).json({ message: 'Request is wrong ' });
+                res.status(500).json({ message: 'Internal Server Error' });
             }
         });
     }

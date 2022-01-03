@@ -26,7 +26,8 @@
     "morgan": "1.10.0",
     "pg": "8.7.1",
     "typeorm": "0.2.38",
-    "winston": "3.3.3"
+    "winston": "3.3.3",
+    "morgan-body": "2.6.6"
   },
   "devDependencies": {
     "@babel/core": "7.15.8",
