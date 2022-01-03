@@ -22,7 +22,7 @@ export class UserEntity extends BaseEntity {
 
 
   @ManyToOne(() => GroupEntity, groups => groups.users, {
-       onUpdate: 'CASCADE', nullable: true
+       onUpdate: 'CASCADE', nullable: true,  onDelete: "SET NULL"
   })
       groups?: GroupEntity;
 
@@ -35,4 +35,14 @@ export class UserEntity extends BaseEntity {
 
   @UpdateDateColumn()
       updatedat!: Date;
+
+    foreignKeys: [
+        {
+            referencedTableName: 'users';
+            referencedColumnNames: ['id'];
+            columnNames: ['users'];
+            onDelete: 'CASCADE';
+
+        }
+    ] | undefined
 }
