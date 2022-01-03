@@ -4,6 +4,7 @@ import { createConnection } from 'typeorm';
 import { UserRouter } from './api/user.router';
 import { GroupRouter } from './api/group.router';
 import dbConfig from './config/typeorm.config';
+import morganMiddleware from './config/morganMiddleware'
 dotenv.config();
 
 class Server {
@@ -21,6 +22,7 @@ class Server {
     public configuration() {
         this.app.set('port', process.env.PORT || 3001);
         this.app.use(express.json());
+        this.app.use(morganMiddleware);
     }
 
 
