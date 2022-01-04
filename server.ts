@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
 import { UserRouter } from './api/user.router';
 import { GroupRouter } from './api/group.router';
+import { AuthRouter } from './api/auth.router';
 import dbConfig from './config/typeorm.config';
 import morganMiddleware from './middleware/morganMiddleware'
 import morgan from 'morgan';
@@ -12,6 +13,7 @@ dotenv.config();
 class Server {
     private userRouter: UserRouter | undefined;
     private groupRouter: GroupRouter | undefined;
+    private authRouter: AuthRouter | undefined;
     private app: express.Application;
 
     constructor() {
@@ -34,6 +36,7 @@ class Server {
 
         this.userRouter = new UserRouter();
         this.groupRouter = new GroupRouter();
+        this.authRouter = new AuthRouter();
 
         this.app.get('/', (req: Request, res: Response) => {
             res.send('Hello world!');
@@ -41,6 +44,7 @@ class Server {
 
         this.app.use('/api/users/', this.userRouter.router);
         this.app.use('/api/groups/', this.groupRouter.router);
+        this.app.use('/', this.authRouter.router);
 
         this.app.use((err, res) => {
             if (err !== null) {
