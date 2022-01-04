@@ -1,3 +1,6 @@
 ./package-lock.json
 /node_modules/
 .idea
+./logs/all.log
+./logs/error.log
+./logs/server.log

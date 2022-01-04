@@ -28,7 +28,7 @@ class Server {
         this.app.set('port', process.env.PORT || 3001);
         this.app.use(express.json());
         this.app.use(morganMiddleware);
-        this.app.use(cors);
+        // this.app.use(cors);
     }
 
 

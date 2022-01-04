@@ -17,7 +17,7 @@ export const validationGroup = {
     id: Joi.string().uuid(),
     name: Joi.string().required(),
     permissions: Joi.array().items(Joi.string().valid('READ', 'WRITE', 'DELETE', 'SHARE', 'UPLOAD_FILES')).required(),
-    users: Joi.string()
+    users: Joi.array()
 };
 
 
@@ -28,7 +28,7 @@ export const schema = (exclude = '',
     login?: Joi.StringSchema;
     isdeleted?: Joi.BooleanSchema;
     age?: Joi.NumberSchema,
-    users?: Joi.StringSchema,
+    users?: Joi.ArraySchema,
     permissions?: Joi.ArraySchema;
     name?: Joi.StringSchema;
     groups?: Joi.StringSchema;}) => {

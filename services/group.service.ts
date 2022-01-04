@@ -66,7 +66,6 @@ export class GroupService {
 
 
     async updateGroupById(group: GroupEntity, groupId: string): Promise<any> {
-        const isUsersExist = group?.users?.length;
 
         const groupById = await this.groupRepository.findOneOrFail({
             where: {
@@ -78,22 +77,13 @@ export class GroupService {
         // @ts-ignore
         const usersByIds = await this.userRepository.findByIds(group.users);
 
-
-        // @ts-ignore
-        const checkIfUserNotExists = usersByIds?.filter(x => !groupById.users.some(y => x.id === y.id))[0];
-
-
-        if (checkIfUserNotExists) {
-            // @ts-ignore
-            groupById.users.push(checkIfUserNotExists);
-        }
-
+        
         const updateGroupEntity = {
             GroupEntity: {
                 id: groupById.id,
                 name: group.name,
                 permissions: group.permissions,
-                users: isUsersExist ? groupById.users : []
+                users: usersByIds
             }
         };
 
