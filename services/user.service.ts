@@ -34,10 +34,15 @@ export class UserService {
     }
 
     async deleteUserById(id: string): Promise<DeleteResult> {
-        return await this.userRepository.delete(id);
+        const user = await this.getUserById(id) as unknown as UserEntity
+        user.isdeleted = true
+
+        return await this.userRepository.update(id, user);
     }
 
     async getUsers(): Promise<UserEntity[]> {
-        return await this.userRepository.find({ relations: ['groups'] });
+        return await this.userRepository.find({ where: {
+                isdeleted: false,
+            }, relations: ['groups'] });
     }
 }
