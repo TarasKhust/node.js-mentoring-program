@@ -14,6 +14,6 @@ export class AuthRouter {
 	}
 
 	public routes() {
-		this.router.post('/', this.authController.login);
+		this.router.post('/login', this.authController.login);
 	}
 }
