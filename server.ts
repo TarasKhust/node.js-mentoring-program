@@ -1,12 +1,13 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
+import morgan from 'morgan';
+import cors from 'cors'
 import { UserRouter } from './api/user.router';
 import { GroupRouter } from './api/group.router';
 import { AuthRouter } from './api/auth.router';
 import dbConfig from './config/typeorm.config';
 import morganMiddleware from './middleware/morganMiddleware'
-import morgan from 'morgan';
 import logger from './lib/logger';
 dotenv.config();
 
@@ -27,6 +28,7 @@ class Server {
         this.app.set('port', process.env.PORT || 3001);
         this.app.use(express.json());
         this.app.use(morganMiddleware);
+        this.app.use(cors);
     }
 
 
