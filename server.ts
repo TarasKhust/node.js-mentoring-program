@@ -6,12 +6,8 @@ import { GroupRouter } from './api/group.router';
 import dbConfig from './config/typeorm.config';
 import morganMiddleware from './middleware/morganMiddleware'
 import morgan from 'morgan';
+import logger from './lib/logger';
 dotenv.config();
-
-morgan.token('param', function(req, res, param) {
-    // @ts-ignore
-    return req?.params[param];
-});
 
 class Server {
     private userRouter: UserRouter | undefined;
@@ -56,6 +52,21 @@ class Server {
     public start() {
         this.app.listen(this.app.get('port'), () => {
             console.log(`Server is listening ${this.app.get('port')} port.`);
+        });
+
+        morgan.token('param', function(req: Request, res: Response, param: any) {
+
+            return req?.params[param];
+        });
+
+        process.on('unhandledRejection', (reason) => {
+            logger.error('unhandledRejection', reason);
+        });
+
+        process.on('uncaughtException', (err) => {
+            logger.error('UncaughtException', err.message);
+            logger.error(err);
+            process.exit(1);
         });
     }
 }
