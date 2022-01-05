@@ -60,7 +60,7 @@ class Server {
             console.log(`Server is listening ${this.app.get('port')} port.`);
         });
 
-        morgan.token('param', function(req: Request, res: Response, param: any) {
+        morgan.token('param', (req: Request, res: Response, param: any) => {
 
             return req?.params[param];
         });
