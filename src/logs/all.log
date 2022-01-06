@@ -1,0 +1,268 @@
+2022-01-03 17:51:33:5133 [35mhttp[39m: [35mGET /api/users 200 631 - 22.379 ms[39m
+[35m[39m
+2022-01-03 17:52:45:5245 [35mhttp[39m: [35mDELETE /api/groups/1748c5ee-238a-41b5-be1e-058ec5d76a21 200 83 - 14.082 ms[39m
+[35m[39m
+2022-01-03 17:53:37:5337 [35mhttp[39m: [35mPOST /api/users 200 116 - 21.862 ms[39m
+[35m[39m
+2022-01-03 17:53:49:5349 [35mhttp[39m: [35mGET /api/groups/ 200 2 - 11.049 ms[39m
+[35m[39m
+2022-01-03 17:53:54:5354 [35mhttp[39m: [35mPOST /api/groups/ 200 172 - 11.285 ms[39m
+[35m[39m
+2022-01-03 17:53:55:5355 [35mhttp[39m: [35mPOST /api/groups/ 200 172 - 8.084 ms[39m
+[35m[39m
+2022-01-03 17:53:56:5356 [35mhttp[39m: [35mPOST /api/groups/ 200 172 - 8.269 ms[39m
+[35m[39m
+2022-01-03 17:53:57:5357 [35mhttp[39m: [35mPOST /api/groups/ 200 172 - 9.013 ms[39m
+[35m[39m
+2022-01-03 17:54:01:541 [35mhttp[39m: [35mGET /api/groups/ 200 737 - 4.563 ms[39m
+[35m[39m
+2022-01-03 18:22:49:2249 [35mhttp[39m: [35mGET /api/users 200 631 - 23.525 ms -[39m
+[35m[39m
+2022-01-03 18:23:07:237 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 209 - 22.694 ms -[39m
+[35m[39m
+2022-01-03 18:32:22:3222 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 209 - 29.419 ms -[39m
+[35m[39m
+2022-01-03 18:33:58:3358 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 {"login":"tarasss","age":10,"password":"21312sda3","isdeleted":false,"groups":"1748c5ee-238a-41b5-be1e-058ec5d76a21"} 209 - 18.467 ms -[39m
+[35m[39m
+2022-01-03 18:34:39:3439 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 {"login":"tarasss","age":10,"password":"21312sda3","isdeleted":false,"groups":"1748c5ee-238a-41b5-be1e-058ec5d76a21"} - 19.867 ms[39m
+[35m[39m
+2022-01-03 18:34:56:3456 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 {"login":"tarasss","age":10,"password":"21312sda3","isdeleted":false,"groups":"1748c5ee-238a-41b5-be1e-058ec5d76a21"} - 19.168 ms[39m
+[35m[39m
+2022-01-03 18:35:02:352 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 {"login":"tarasss","age":10,"password":"21312sda3","isdeleted":false,"groups":"1748c5ee-238a-41b5-be1e-058ec5d76a21"} - 6.443 ms[39m
+[35m[39m
+2022-01-03 18:35:56:3556 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 21.056 ms[39m
+[35m[39m
+2022-01-03 18:39:43:3943 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - - 20.464 ms[39m
+[35m[39m
+2022-01-03 18:39:59:3959 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 13.157 ms[39m
+[35m[39m
+2022-01-03 18:40:19:4019 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 12.301 ms[39m
+[35m[39m
+2022-01-03 18:40:46:4046 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 13.978 ms[39m
+[35m[39m
+2022-01-03 18:41:45:4145 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 14.392 ms[39m
+[35m[39m
+2022-01-03 18:46:17:4617 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 13.787 ms[39m
+[35m[39m
+2022-01-03 18:46:49:4649 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 11.703 ms[39m
+[35m[39m
+2022-01-03 18:47:14:4714 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 13.716 ms[39m
+[35m[39m
+2022-01-03 18:47:16:4716 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - - 3.830 ms[39m
+[35m[39m
+2022-01-03 18:47:47:4747 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3" - 20.389 ms[39m
+[35m[39m
+2022-01-03 18:53:48:5348 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3" - 17.651 ms[39m
+[35m[39m
+2022-01-03 18:54:05:545 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3" - 16.793 ms[39m
+[35m[39m
+2022-01-03 18:56:20:5620 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3" - 14.541 ms[39m
+[35m[39m
+2022-01-03 18:58:52:5852 [31merror[39m: [31minvalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 18:58:52:5852 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3" - 17.986 ms[39m
+[35m[39m
+2022-01-03 19:18:04:184 [31merror[39m: [31minvalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:18:04:184 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 500 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 20.384 ms[39m
+[35m[39m
+2022-01-03 19:19:38:1938 [31merror[39m: [31mGET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:20:16:2016 [31merror[39m: [31mGET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:21:06:216 [31merror[39m: [31minvalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:21:06:216 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 15.122 ms[39m
+[35m[39m
+2022-01-03 19:23:47:2347 [31merror[39m: [31mGET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:25:40:2540 [31merror[39m: [31mGET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:25:40:2540 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 15.932 ms[39m
+[35m[39m
+2022-01-03 19:26:49:2649 [31merror[39m: [31mmethod GET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} errorinvalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:26:49:2649 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 14.445 ms[39m
+[35m[39m
+2022-01-03 19:27:15:2715 [31merror[39m: [31mmethod: GET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} message: invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:27:15:2715 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 14.768 ms[39m
+[35m[39m
+2022-01-03 19:30:57:3057 [31merror[39m: [31mmethod: GET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} message: invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-03 19:30:57:3057 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 param - f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 15.685 ms[39m
+[35m[39m
+2022-01-04 11:31:54:3154 [31merror[39m: [31mmethod: GET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} message: invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-04 11:31:54:3154 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 15.668 ms[39m
+[35m[39m
+2022-01-04 11:57:51:5751 [35mhttp[39m: [35mGET /apple-touch-icon-precomposed.png 500 - - 1.947 ms[39m
+[35m[39m
+2022-01-04 11:57:51:5751 [35mhttp[39m: [35mGET /apple-touch-icon.png 500 - - 0.528 ms[39m
+[35m[39m
+2022-01-04 11:57:51:5751 [35mhttp[39m: [35mGET /favicon.ico 500 - - 0.286 ms[39m
+[35m[39m
+2022-01-04 11:57:51:5751 [31merror[39m: [31mmethod: GET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} message: invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-04 11:57:51:5751 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 33.214 ms[39m
+[35m[39m
+2022-01-04 11:59:49:5949 [35mhttp[39m: [35mGET / 200 - - 2.063 ms[39m
+[35m[39m
+2022-01-04 12:00:00:00 [35mhttp[39m: [35mGET /login 500 - - 0.694 ms[39m
+[35m[39m
+2022-01-04 12:00:25:025 [35mhttp[39m: [35mGET /login 500 - - 2.082 ms[39m
+[35m[39m
+2022-01-04 12:00:38:038 [35mhttp[39m: [35mPOST /login 403 - - 0.767 ms[39m
+[35m[39m
+2022-01-04 12:33:12:3312 [35mhttp[39m: [35mGET /api/groups/ - - - - ms[39m
+[35m[39m
+2022-01-04 12:33:48:3348 [35mhttp[39m: [35mGET /api/groups/ 200 - - 12.934 ms[39m
+[35m[39m
+2022-01-04 12:33:50:3350 [35mhttp[39m: [35mGET /api/groups/ 200 - - 3.723 ms[39m
+[35m[39m
+2022-01-04 12:35:12:3512 [35mhttp[39m: [35mPUT /api/groups/ 500 - - 0.667 ms[39m
+[35m[39m
+2022-01-04 12:35:24:3524 [31merror[39m: [31mmethod: PUT Params: {"id":"2962febc-025b-4298-94ce-40fe05cba367"} message: Could not find any entity of type "GroupEntity" matching: {[39m
+[31m    "where": {[39m
+[31m        "id": "2962febc-025b-4298-94ce-40fe05cba367"[39m
+[31m    },[39m
+[31m    "relations": [[39m
+[31m        "users"[39m
+[31m    ][39m
+[31m}[39m
+2022-01-04 12:35:24:3524 [35mhttp[39m: [35mPUT /api/groups/2962febc-025b-4298-94ce-40fe05cba367 200 2962febc-025b-4298-94ce-40fe05cba367 - 15.359 ms[39m
+[35m[39m
+2022-01-04 12:35:57:3557 [35mhttp[39m: [35mPUT /api/groups/2962febc-025b-4298-94ce-40fe05cba367 400 2962febc-025b-4298-94ce-40fe05cba367 - 1.252 ms[39m
+[35m[39m
+2022-01-04 12:37:45:3745 [31merror[39m: [31mmethod: PUT Params: {"id":"2962febc-025b-4298-94ce-40fe05cba367"} message: Could not find any entity of type "GroupEntity" matching: {[39m
+[31m    "where": {[39m
+[31m        "id": "2962febc-025b-4298-94ce-40fe05cba367"[39m
+[31m    },[39m
+[31m    "relations": [[39m
+[31m        "users"[39m
+[31m    ][39m
+[31m}[39m
+2022-01-04 12:37:45:3745 [35mhttp[39m: [35mPUT /api/groups/2962febc-025b-4298-94ce-40fe05cba367 200 2962febc-025b-4298-94ce-40fe05cba367 - 24.824 ms[39m
+[35m[39m
+2022-01-04 12:38:21:3821 [31merror[39m: [31mmethod: GET Params: {"id":"f7a3c11a-c068-4f3d-abc4-41fbd599ea3"} message: invalid input syntax for type uuid: "f7a3c11a-c068-4f3d-abc4-41fbd599ea3"[39m
+2022-01-04 12:38:21:3821 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea3 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea3 - 10.994 ms[39m
+[35m[39m
+2022-01-04 12:38:33:3833 [35mhttp[39m: [35mGET /api/users/ 200 - - 11.290 ms[39m
+[35m[39m
+2022-01-04 12:38:52:3852 [31merror[39m: [31mmethod: PUT Params: {"id":"2962febc-025b-4298-94ce-40fe05cba367"} message: Could not find any entity of type "GroupEntity" matching: {[39m
+[31m    "where": {[39m
+[31m        "id": "2962febc-025b-4298-94ce-40fe05cba367"[39m
+[31m    },[39m
+[31m    "relations": [[39m
+[31m        "users"[39m
+[31m    ][39m
+[31m}[39m
+2022-01-04 12:38:52:3852 [35mhttp[39m: [35mPUT /api/groups/2962febc-025b-4298-94ce-40fe05cba367 200 2962febc-025b-4298-94ce-40fe05cba367 - 10.533 ms[39m
+[35m[39m
+2022-01-04 12:39:44:3944 [35mhttp[39m: [35mGET /api/groups 200 - - 13.907 ms[39m
+[35m[39m
+2022-01-04 12:39:54:3954 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 7.260 ms[39m
+[35m[39m
+2022-01-04 12:40:01:401 [35mhttp[39m: [35mPUT /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 24.931 ms[39m
+[35m[39m
+2022-01-04 12:40:29:4029 [35mhttp[39m: [35mGET /api/users/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 404 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 10.160 ms[39m
+[35m[39m
+2022-01-04 12:40:55:4055 [31merror[39m: [31mmethod: GET Params: {"id":"\"f7a3c11a-c068-4f3d-abc4-41fbd599ea34"} message: invalid input syntax for type uuid: ""f7a3c11a-c068-4f3d-abc4-41fbd599ea34"[39m
+2022-01-04 12:40:55:4055 [35mhttp[39m: [35mGET /api/users/%22f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 "f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 10.843 ms[39m
+[35m[39m
+2022-01-04 12:41:02:412 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 6.527 ms[39m
+[35m[39m
+2022-01-04 12:42:45:4245 [35mhttp[39m: [35mPUT /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 33.426 ms[39m
+[35m[39m
+2022-01-04 12:43:57:4357 [35mhttp[39m: [35mPUT /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 42.913 ms[39m
+[35m[39m
+2022-01-04 12:44:00:440 [35mhttp[39m: [35mPUT /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 23.372 ms[39m
+[35m[39m
+2022-01-04 12:44:08:448 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 7.586 ms[39m
+[35m[39m
+2022-01-04 12:47:24:4724 [35mhttp[39m: [35mGET /api/users/ 200 - - 16.494 ms[39m
+[35m[39m
+2022-01-04 12:52:13:5213 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 22.841 ms[39m
+[35m[39m
+2022-01-04 12:52:28:5228 [35mhttp[39m: [35mDELETE /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 18.575 ms[39m
+[35m[39m
+2022-01-04 12:52:38:5238 [35mhttp[39m: [35mGET /api/users/f7a3c11a-c068-4f3d-abc4-41fbd599ea34 200 f7a3c11a-c068-4f3d-abc4-41fbd599ea34 - 5.907 ms[39m
+[35m[39m
+2022-01-04 12:52:48:5248 [35mhttp[39m: [35mGET /api/users/ 200 - - 10.655 ms[39m
+[35m[39m
+2022-01-05 14:06:57:657 [35mhttp[39m: [35mGET /api/users/ 200 - - 21.637 ms[39m
+[35m[39m
+2022-01-05 14:09:14:914 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:09:14:914 [35mhttp[39m: [35mGET /api/groups/ 200 - - 7.657 ms[39m
+[35m[39m
+2022-01-05 14:14:28:1428 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:14:28:1428 [35mhttp[39m: [35mGET /api/groups/ 200 - - 1.012 ms[39m
+[35m[39m
+2022-01-05 14:16:47:1647 [31merror[39m: [31mmethod: GET Params: {} message: "user" alias was not found. Maybe you forgot to join it?[39m
+2022-01-05 14:16:47:1647 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.016 ms[39m
+[35m[39m
+2022-01-05 14:17:00:170 [31merror[39m: [31mmethod: GET Params: {} message: "user" alias was not found. Maybe you forgot to join it?[39m
+2022-01-05 14:17:00:170 [35mhttp[39m: [35mGET /api/groups/ 200 - - 1.143 ms[39m
+[35m[39m
+2022-01-05 14:17:01:171 [31merror[39m: [31mmethod: GET Params: {} message: "user" alias was not found. Maybe you forgot to join it?[39m
+2022-01-05 14:17:01:171 [35mhttp[39m: [35mGET /api/groups/ 200 - - 0.944 ms[39m
+[35m[39m
+2022-01-05 14:17:28:1728 [31merror[39m: [31mmethod: GET Params: {} message: Relation with property path id in entity was not found.[39m
+2022-01-05 14:17:28:1728 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.121 ms[39m
+[35m[39m
+2022-01-05 14:17:49:1749 [31merror[39m: [31mmethod: GET Params: {} message: Relation with property path id in entity was not found.[39m
+2022-01-05 14:17:49:1749 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.423 ms[39m
+[35m[39m
+2022-01-05 14:17:49:1749 [31merror[39m: [31mmethod: GET Params: {} message: Relation with property path id in entity was not found.[39m
+2022-01-05 14:17:49:1749 [35mhttp[39m: [35mGET /api/groups/ 200 - - 1.026 ms[39m
+[35m[39m
+2022-01-05 14:17:50:1750 [31merror[39m: [31mmethod: GET Params: {} message: Relation with property path id in entity was not found.[39m
+2022-01-05 14:17:50:1750 [35mhttp[39m: [35mGET /api/groups/ 200 - - 0.860 ms[39m
+[35m[39m
+2022-01-05 14:19:43:1943 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:19:43:1943 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.957 ms[39m
+[35m[39m
+2022-01-05 14:20:50:2050 [35mhttp[39m: [35mGET /api/groups/ 200 - - 12.256 ms[39m
+[35m[39m
+2022-01-05 14:21:14:2114 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 20.199 ms[39m
+[35m[39m
+2022-01-05 14:22:38:2238 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 24.804 ms[39m
+[35m[39m
+2022-01-05 14:22:48:2248 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 16.590 ms[39m
+[35m[39m
+2022-01-05 14:22:55:2255 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 17.489 ms[39m
+[35m[39m
+2022-01-05 14:23:01:231 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 5.302 ms[39m
+[35m[39m
+2022-01-05 14:24:54:2454 [35mhttp[39m: [35mGET /api/groups/bda35b3b-1b1c-4b1f-ac9b-2f1035873091 200 bda35b3b-1b1c-4b1f-ac9b-2f1035873091 - 18.215 ms[39m
+[35m[39m
+2022-01-05 14:25:44:2544 [31merror[39m: [31mmethod: GET Params: {} message: No entity column "profile" was found.[39m
+2022-01-05 14:25:44:2544 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.876 ms[39m
+[35m[39m
+2022-01-05 14:25:56:2556 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:25:56:2556 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.942 ms[39m
+[35m[39m
+2022-01-05 14:27:58:2758 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:27:58:2758 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.995 ms[39m
+[35m[39m
+2022-01-05 14:27:59:2759 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:27:59:2759 [35mhttp[39m: [35mGET /api/groups/ 200 - - 1.250 ms[39m
+[35m[39m
+2022-01-05 14:31:25:3125 [31merror[39m: [31mmethod: GET Params: {} message: syntax error at or near ":"[39m
+2022-01-05 14:31:25:3125 [35mhttp[39m: [35mGET /api/groups/ 200 - - 11.503 ms[39m
+[35m[39m
+2022-01-05 14:31:32:3132 [31merror[39m: [31mmethod: GET Params: {} message: missing FROM-clause entry for table "users"[39m
+2022-01-05 14:31:32:3132 [35mhttp[39m: [35mGET /api/groups/ 200 - - 13.439 ms[39m
+[35m[39m
+2022-01-05 14:33:52:3352 [31merror[39m: [31mmethod: GET Params: {} message: invalid reference to FROM-clause entry for table "users"[39m
+2022-01-05 14:33:52:3352 [35mhttp[39m: [35mGET /api/groups/ 200 - - 13.237 ms[39m
+[35m[39m
+2022-01-05 14:34:24:3424 [31merror[39m: [31mUncaughtException[39m
+2022-01-05 14:34:49:3449 [31merror[39m: [31mmethod: GET Params: {} message: invalid reference to FROM-clause entry for table "users"[39m
+2022-01-05 14:34:49:3449 [35mhttp[39m: [35mGET /api/groups/ 200 - - 12.662 ms[39m
+[35m[39m
+2022-01-05 14:35:46:3546 [31merror[39m: [31mmethod: GET Params: {} message: missing FROM-clause entry for table "users"[39m
+2022-01-05 14:35:46:3546 [35mhttp[39m: [35mGET /api/groups/ 200 - - 12.895 ms[39m
+[35m[39m
+2022-01-05 14:37:15:3715 [31merror[39m: [31mmethod: GET Params: {} message: Relation "users.isdeleted" was not found; please check if it is correct and really exists in your entity.[39m
+2022-01-05 14:37:15:3715 [35mhttp[39m: [35mGET /api/groups/ 200 - - 6.439 ms[39m
+[35m[39m
+2022-01-05 14:37:29:3729 [31merror[39m: [31mmethod: GET Params: {} message: Cannot query across one-to-many for property users[39m
+2022-01-05 14:37:29:3729 [35mhttp[39m: [35mGET /api/groups/ 200 - - 8.304 ms[39m
+[35m[39m
+2022-01-05 14:40:30:4030 [35mhttp[39m: [35mGET /api/groups/ 200 - - 13.395 ms[39m
+[35m[39m
+2022-01-05 14:40:34:4034 [35mhttp[39m: [35mGET /api/groups/ 200 - - 4.301 ms[39m
+[35m[39m
+2022-01-05 14:40:49:4049 [35mhttp[39m: [35mGET /api/groups/ 200 - - 12.470 ms[39m
+[35m[39m
+2022-01-05 14:40:49:4049 [35mhttp[39m: [35mGET /api/groups/ 200 - - 5.008 ms[39m
+[35m[39m
