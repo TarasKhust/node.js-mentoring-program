@@ -2,7 +2,6 @@ import { DeleteResult, getConnection } from 'typeorm';
 import { GroupEntity } from '../models/group.entity';
 import { GroupRepository } from '../repository/group.repository';
 import { UserRepository } from '../repository/user.repository';
-import { log } from 'util';
 
 type Users = {
     users: String[]
@@ -66,7 +65,6 @@ export class GroupService {
 
 
     async updateGroupById(group: GroupEntity, groupId: string): Promise<any> {
-
         const groupById = await this.groupRepository.findOneOrFail({
             where: {
                 id: groupId
@@ -77,7 +75,7 @@ export class GroupService {
         // @ts-ignore
         const usersByIds = await this.userRepository.findByIds(group.users);
 
-        
+
         const updateGroupEntity = {
             GroupEntity: {
                 id: groupById.id,

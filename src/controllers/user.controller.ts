@@ -1,7 +1,6 @@
 import { UserService } from '../services/user.service';
 
-import { Response, Request, NextFunction } from 'express';
-import logger from '../lib/logger';
+import { Response, Request } from 'express';
 import { errorHandler } from '../middleware/error-handler';
 
 export class UserController {
@@ -22,7 +21,7 @@ export class UserController {
                 res.status(200).json(user);
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -37,7 +36,7 @@ export class UserController {
                 res.status(200).json(users);
             }
         }  catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -53,7 +52,7 @@ export class UserController {
                 res.status(200).json(newUser);
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -70,7 +69,7 @@ export class UserController {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -86,7 +85,7 @@ export class UserController {
                 res.status(404).json({ message: `User with id ${id} not found` });
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };

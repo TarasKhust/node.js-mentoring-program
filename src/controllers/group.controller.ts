@@ -1,7 +1,6 @@
 import { GroupService } from '../services/group.service';
 
 import { Response, Request } from 'express';
-import logger from '../lib/logger';
 import errorHandler from '../middleware/error-handler';
 
 export class GroupController {
@@ -22,7 +21,7 @@ export class GroupController {
                 res.status(200).json(group);
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -37,7 +36,7 @@ export class GroupController {
                 res.status(200).json(groups);
             }
         }  catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -53,7 +52,7 @@ export class GroupController {
                 res.status(200).json(newGroup);
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -70,7 +69,7 @@ export class GroupController {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -87,7 +86,7 @@ export class GroupController {
                 res.status(404).json({ message: `User with id ${id} not found ` });
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
@@ -103,7 +102,7 @@ export class GroupController {
                 res.status(404).json({ message: `User with id ${id} not found` });
             }
         } catch ({ message }) {
-            errorHandler(req, message)
+            errorHandler(req, message);
             res.json({ message });
         }
     };
