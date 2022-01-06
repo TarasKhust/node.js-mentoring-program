@@ -47,7 +47,7 @@ export class UserController {
             const newUser = await this.usersService.createUser(user);
 
             if (!newUser) {
-                res.status(200).json({ message: `User with id ${user.id} already created` });
+                res.status(500).json({ message: `User with id ${user.id} already created` });
             } else {
                 res.status(200).json(newUser);
             }

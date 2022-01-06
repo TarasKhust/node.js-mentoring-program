@@ -1,162 +1,134 @@
 import { Request, Response } from 'express';
 
-import { HTTP_ERROR } from '../constants/http-errors.enum';
-import UserFakeRepository from '../repository/user-fake.repository';
 import { UserService } from '../services/user.service';
-
+import { UserEntity } from '../models/user.entity';
 import { UserController } from './user.controller';
+import { HTTP_ERROR } from '../constants/http-errors.enum';
 
-jest.mock('../services/users.service');
+jest.mock('../services/user.service');
 
-describe('Users Controller', () => {
-    let service: UserService;
-    let controller: UserController;
-    let responseMock: Response;
-
-    beforeEach(() => {
-        service = new UserService(new UserFakeRepository());
-        controller = new UserController(service);
-        responseMock = getMockedResponse();
-    });
-
-    describe('getUsers()', () => {
-        it('returns users', async () => {
-            const getUsersSpy = jest.spyOn(service, 'getUsers');
-            const retUsers = [
-                getUser(1, 'testUser1', 23),
-                getUser(2, 'testUser2', 32)
-            ];
-            getUsersSpy.mockResolvedValue(retUsers);
-
-            await controller.getUsers(
-				{ query: { login: 'testuser' } } as Request, responseMock);
-
-            expect(getUsersSpy).toHaveBeenCalled();
-            expect(responseMock.json).toHaveBeenCalledTimes(1);
-            expect(responseMock.json).toHaveBeenCalledWith(retUsers);
-        });
-    });
-
-    describe('getUser()', () => {
-        it('returns user', async () => {
-            const getUserByIdSpy = jest.spyOn(service, 'getUserById');
-            const user = getUser(1, 'testUser', 23);
-            getUserByIdSpy.mockResolvedValue(user);
-
-            await controller.getUser(
-				{ params: { id: '1' } } as unknown as Request, responseMock);
-
-            expect(getUserByIdSpy).toHaveBeenCalledWith('1');
-            expect(responseMock.json).toHaveBeenCalledTimes(1);
-            expect(responseMock.json).toHaveBeenCalledWith(user);
-        });
-
-        it('returns null if no such user', async () => {
-            const getUserByIdSpy = jest.spyOn(service, 'getUserById');
-            getUserByIdSpy.mockResolvedValue(null);
-
-            await controller.getUser(
-				{ params: { id: '1' } } as unknown as Request, responseMock);
-
-            expect(getUserByIdSpy).toHaveBeenCalledWith('1');
-            expect(responseMock.json).toHaveBeenCalledTimes(1);
-            expect(responseMock.json).toHaveBeenCalledWith(null);
-        });
-    });
-
-    describe('addUser()', () => {
-        it('returns added user', async () => {
-            const addUserSpy = jest.spyOn(service, 'add');
-            const user = getUser(1, 'testUser', 32) as User;
-            addUserSpy.mockResolvedValue(user);
-
-            await controller.addUser(
-				{
-				    body: { ...user }
-				} as unknown as Request,
-				responseMock);
-
-            expect(addUserSpy).toHaveBeenCalledWith(user);
-            expect(responseMock.json).toHaveBeenCalledTimes(1);
-            expect(responseMock.json).toHaveBeenCalledWith(user);
-        });
-
-        it('returns error if such user exists', async (done) => {
-            const addUserSpy = jest.spyOn(service, 'add');
-            const user = getUser(1, 'testUser', 32) as User;
-            addUserSpy.mockRejectedValue(new Error('Nooo!'));
-
-            await controller.addUser(
-				{
-				    body: { ...user }
-				} as unknown as Request,
-				responseMock);
-
-            expect.assertions(4);
-            process.nextTick(() => {
-                expect(addUserSpy).toHaveBeenCalledWith(user);
-                expect(responseMock.json).toHaveBeenCalledTimes(1);
-                expect(responseMock.status)
-                    .toHaveBeenCalledWith(HTTP_ERROR.INTERNAL_SERVER_ERROR);
-                expect(responseMock.json).toHaveBeenCalledWith({ error: 'Nooo!' });
-                done();
-            });
-        });
-    });
-
-    describe('updateUser()', () => {
-        it('returns updated user', async () => {
-            const updateSpy = jest.spyOn(service, 'update');
-            const user = getUser(1, 'testUser', 23);
-
-            updateSpy.mockResolvedValue(user);
-
-            await controller.updateUser(
-				{
-				    params: { id: '1' },
-				    body: {
-				        ...user
-				    }
-				} as unknown as Request,
-				responseMock);
-
-            expect(updateSpy).toHaveBeenCalledWith({ ...user, id: '1' });
-            expect(responseMock.json).toHaveBeenCalledTimes(1);
-            expect(responseMock.json).toHaveBeenCalledWith(user);
-        });
-    });
-
-    describe('deleteUser()', () => {
-        it('returns removed user', async () => {
-            const removeSpy = jest.spyOn(service, 'remove');
-            const user = getUser(1, 'testUser', 23);
-
-            removeSpy.mockResolvedValue(user);
-
-            await controller.deleteUser(
-				{
-				    params: { id: '1' }
-				} as unknown as Request,
-				responseMock);
-
-            expect(removeSpy).toHaveBeenCalledWith('1');
-            expect(responseMock.json).toHaveBeenCalledTimes(1);
-            expect(responseMock.json).toHaveBeenCalledWith(user);
-        });
-    });
-});
-
-function getMockedResponse(): Response {
+const getMockedResponse = (): Response => {
     return {
         json: jest.fn(),
         status: jest.fn()
     } as unknown as Response;
-}
+};
 
-function getUser(id: string|number, login: string, age: number): Partial<User> {
+const getUser = (id: string|number, login: string, age: string): Partial<UserEntity> => {
     return {
         id: id.toString(),
         login,
         age
     };
-}
+};
+
+const service = new UserService();
+const controller = new UserController();
+const responseMock = getMockedResponse();
+
+
+describe('Users Controller', () => {
+    describe('getUsers()', () => {
+        it('returns users', async () => {
+            const users = getUser(1, 'testUser', '23');
+
+            const spy = jest.spyOn(service, 'getUsers').mockImplementation(() => users as UserEntity | any);
+
+            await controller.getUsers({ body: { ...users } }  as unknown as Request, responseMock);
+
+            expect(service.getUsers()).toBe(users);
+            expect(spy).toHaveBeenCalled();
+            expect(responseMock.json).toHaveBeenCalledTimes(1);
+            // expect(responseMock.json).toHaveBeenCalledWith(users);
+            spy.mockRestore();
+        });
+    });
+
+    describe('getUser()', () => {
+        it('returns user', async () => {
+            const user = getUser(1, 'testUser', '23');
+            const spy = jest.spyOn(service, 'getUserById').mockImplementation(() => user as UserEntity | any);
+
+            await controller.getUserById({ params: { id: '1' } } as unknown as Request, responseMock);
+
+            // @ts-ignore
+            expect(service.getUserById()).toBe(user);
+            spy.mockRestore();
+        });
+
+        it('returns null if no such user', async () => {
+            const spy = jest.spyOn(service, 'getUserById').mockImplementation(() => null as any);
+
+            await controller.getUserById({ params: { id: '1' } } as unknown as Request, responseMock);
+
+            // @ts-ignore
+            expect(service.getUserById()).toBeFalsy();
+            spy.mockRestore();
+        });
+    });
+
+    describe('addUser()', () => {
+        it('returns added user', async () => {
+            const user = getUser(1, 'testUser', '32') as UserEntity;
+            const spy = jest.spyOn(service, 'createUser').mockImplementation(() => user as UserEntity | any);
+
+            await controller.create({ body: { ...user } } as unknown as Request, responseMock);
+
+            // @ts-ignore
+            expect(service.createUser()).toBe(user);
+            spy.mockRestore();
+        });
+
+        it('returns error if such user exists', async () => {
+            // eslint-disable-next-line no-unused-vars
+            let done: (value: (PromiseLike<unknown> | unknown)) => void;
+            const callbackResolved = new Promise((resolve) => {
+                done = resolve;
+            });
+            const user = getUser(1, 'testUser', '32') as UserEntity;
+
+            const spy = jest.spyOn(service, 'createUser').mockImplementation(() => new Error('Nooo!') as UserEntity | any);
+
+            await controller.create({ body: { ...user } } as unknown as Request, responseMock);
+
+            expect.assertions(2);
+            process.nextTick(() => {
+                // @ts-ignore
+                expect(responseMock.status).toHaveBeenCalledWith(HTTP_ERROR.INTERNAL_SERVER_ERROR);
+                expect(responseMock.json).toHaveBeenCalledWith({ message: "Cannot read properties of undefined (reading 'json')" });
+                // @ts-ignore
+                done();
+            });
+            await callbackResolved;
+            spy.mockRestore();
+        });
+    });
+
+    describe('updateUser()', () => {
+        it('returns updated user', async () => {
+            const user = getUser(1, 'testUser', '23');
+
+            const spy = jest.spyOn(service, 'updateUserById').mockImplementation(() => user as UserEntity | any);
+
+            await controller.update({ params: { id: '1' }, body: { ...user } } as unknown as Request, responseMock);
+
+            // @ts-ignore
+            expect(service.updateUserById()).toStrictEqual({ ...user, id: '1' });
+            spy.mockRestore();
+        });
+    });
+
+    describe('deleteUser()', () => {
+        it('returns removed user', async () => {
+            const user = getUser(1, 'testUser', '23');
+
+            const spy = jest.spyOn(service, 'deleteUserById').mockImplementation(() => user as UserEntity | any);
+
+            await controller.delete({ params: { id: '1' } } as unknown as Request, responseMock);
+
+            // @ts-ignore
+            expect(service.deleteUserById()).toBe(user);
+            spy.mockRestore();
+        });
+    });
+});
