@@ -39,7 +39,6 @@ describe('Users Controller', () => {
             expect(service.getUsers()).toBe(users);
             expect(spy).toHaveBeenCalled();
             expect(responseMock.json).toHaveBeenCalledTimes(1);
-            // expect(responseMock.json).toHaveBeenCalledWith(users);
             spy.mockRestore();
         });
     });
